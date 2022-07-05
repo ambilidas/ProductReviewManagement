@@ -61,7 +61,20 @@ namespace ProductReviewManagement
                 Console.WriteLine("Product ID: " + record.ProductID + " User ID: " + record.UserID + " Rating: " + record.Rating + " Review: " + record.Review + " IsLike:" + record.Islike);
             }
         }
-        
+        //UC9
+        public void RetrieveIslikeTrue(List<ProductReview> listProductReview)
+        {
+            var recordData = (from productReviews in listProductReview
+                              where productReviews.Islike == true
+                              select productReviews);
+            foreach (var record in recordData)
+            {
+                Console.WriteLine("Product ID: " + record.ProductID + " User ID: " + record.UserID + " Rating: " + record.Rating + " Review: " + record.Review + " IsLike:" + record.Islike);
+            }
+
+        }
+
+
 
     }
 }
