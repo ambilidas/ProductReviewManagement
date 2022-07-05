@@ -21,5 +21,17 @@ namespace ProductReviewManagement
                 Console.WriteLine("Product ID: "+record.ProductID+" User ID: "+record.UserID+" Rating: "+record.Rating+" Review: "+record.Review+" IsLike:"+record.Islike);
             }
         }
+        //UC3
+        public void SelectedRecords(List<ProductReview> listProductReview)
+        {
+            var recordData= (from productReviews in listProductReview
+                             where (productReviews.ProductID==1 || productReviews.ProductID==4 || productReviews.ProductID==9)
+                             && productReviews.Rating > 3
+                             select productReviews);
+            foreach (var record in recordData)
+            {
+                Console.WriteLine("Product ID: " + record.ProductID + " User ID: " + record.UserID + " Rating: " + record.Rating + " Review: " + record.Review + " IsLike:" + record.Islike);
+            }
+        }
     }
 }
